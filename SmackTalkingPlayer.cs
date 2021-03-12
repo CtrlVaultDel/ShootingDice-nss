@@ -6,16 +6,11 @@ namespace ShootingDice
     public class SmackTalkingPlayer : Player
     {
         public string Taunt { get; set; }
+
         public override void Play(Player other)
         {
-            Console.WriteLine($"{this.Name} says: {Taunt}");
+            Console.WriteLine($"{Name} says: {Taunt}");
             base.Play(other);
         }
-
-        public SmackTalkingPlayer(string taunt)
-        {
-            Taunt = taunt;
-        }
-
     }
 }
