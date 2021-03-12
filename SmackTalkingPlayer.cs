@@ -1,13 +1,14 @@
+using System;
+
 namespace ShootingDice
 {
     // A Player who shouts a taunt every time they roll dice
-    public class SmackTalkingPlayer
+    public class SmackTalkingPlayer : Player
     {
-        public string Taunt { get; }
-
-        public SmackTalkingPlayer()
+        public override void Play(Player other)
         {
-            Taunt = "Everyone has dreams, mine is to CRUSH YOURS";
+            Console.WriteLine($"{this.Name} says: Everyone has dreams, mine is to CRUSH YOURS.");
+            base.Play(other);
         }
     }
 }
