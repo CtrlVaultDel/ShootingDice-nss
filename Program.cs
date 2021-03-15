@@ -10,42 +10,60 @@ namespace ShootingDice
         {
             try
             {
+                // Says the same insult when they roll
                 SmackTalkingPlayer smackTalker = new SmackTalkingPlayer()
                 {
                     Taunt = "You're about to lose a lot of money!"
                 };
                 smackTalker.Name = "Smack-Talkin Bob";
 
+                // Always rolls one higher than their opponent
                 OneHigherPlayer oneHigherPlayer = new OneHigherPlayer();
                 oneHigherPlayer.Name = "One-High Sue";
 
+                // Allows the user to play by entering a number
                 HumanPlayer humanPlayer = new HumanPlayer();
                 humanPlayer.Name = "Wilma";
 
+                // Rolls a "20-sided" die instead of 6
                 Player bigRoller = new LargeDicePlayer();
                 bigRoller.Name = "Bigun Rollsalot";
 
+                // Chooses from a list of random insults when they are the primary roller
                 CreativeSmackTalkingPlayer creativeSmackTalker = new CreativeSmackTalkingPlayer();
                 creativeSmackTalker.Name = "Creative Charlie";
 
+                // If they lose, they throw an exception
                 SoreLoserPlayer soreLoser = new SoreLoserPlayer();
                 soreLoser.Name = "Angry Sally";
 
+                // Rolls the upperhalf of their possible rolls
                 UpperHalfPlayer upperPlayer = new UpperHalfPlayer();
                 upperPlayer.Name = "Uptop Eustice";
-                upperPlayer.Play(smackTalker);
+
+                // Rolls the upperhalf of their possible rolls
+                // If they lose, they throw an exception
+                SoreLoserUpperHalfPlayer soreUpperPlayer = new SoreLoserUpperHalfPlayer();
+                soreUpperPlayer.Name = "Upperclass Sore Loser Larry";
 
                 Console.WriteLine("-------------------");
 
                 List<Player> players = new List<Player>() {
-                    smackTalker, oneHigherPlayer, humanPlayer, bigRoller, creativeSmackTalker
+                    smackTalker,
+                    oneHigherPlayer,
+                    humanPlayer,
+                    bigRoller,
+                    creativeSmackTalker,
+                    soreLoser,
+                    upperPlayer,
+                    soreUpperPlayer
                 };
 
-                //PlayMany(players);
+                PlayMany(players);
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("Angry Sally is quite mad since she lost. She broke the game");
+                Console.WriteLine("A SoreLoser lost. They... broke the game");
             }
         }
 
