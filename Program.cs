@@ -30,7 +30,10 @@ namespace ShootingDice
 
                 SoreLoserPlayer soreLoser = new SoreLoserPlayer();
                 soreLoser.Name = "Angry Sally";
-                soreLoser.Play(smackTalker);
+
+                UpperHalfPlayer upperPlayer = new UpperHalfPlayer();
+                upperPlayer.Name = "Uptop Eustice";
+                upperPlayer.Play(smackTalker);
 
                 Console.WriteLine("-------------------");
 
