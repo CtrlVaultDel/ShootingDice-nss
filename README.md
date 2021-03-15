@@ -8,12 +8,6 @@ You are building a dice game. Like any good game, your game should have players.
 
 The goal of this exercise is to create classes to represent those various types of players and to write a `Program` class that will test them out.
 
-### The Setup
-
-1. Clone this repo.
-1. Create a new repo under your github account.
-1. Change the remote origin of the local repo to your new github repo.
-
 ### The Task
 
 1. Read the existing code. Add or modify comments as needed to help you understand it.
