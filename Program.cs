@@ -8,47 +8,42 @@ namespace ShootingDice
     {
         static void Main(string[] args)
         {
-            SmackTalkingPlayer player1 = new SmackTalkingPlayer()
+            try
             {
-                Taunt = "You're about to lose a lot of money!"
-            };
-            player1.Name = "Smack-Talkin Bob";
+                SmackTalkingPlayer smackTalker = new SmackTalkingPlayer()
+                {
+                    Taunt = "You're about to lose a lot of money!"
+                };
+                smackTalker.Name = "Smack-Talkin Bob";
 
-            OneHigherPlayer player2 = new OneHigherPlayer();
-            player2.Name = "One-High Sue";
+                OneHigherPlayer oneHigherPlayer = new OneHigherPlayer();
+                oneHigherPlayer.Name = "One-High Sue";
 
-            player2.Play(player1);
+                HumanPlayer humanPlayer = new HumanPlayer();
+                humanPlayer.Name = "Wilma";
 
-            Console.WriteLine("-------------------");
+                Player bigRoller = new LargeDicePlayer();
+                bigRoller.Name = "Bigun Rollsalot";
 
-            HumanPlayer player3 = new HumanPlayer();
-            player3.Name = "Wilma";
+                CreativeSmackTalkingPlayer creativeSmackTalker = new CreativeSmackTalkingPlayer();
+                creativeSmackTalker.Name = "Creative Charlie";
 
-            player3.Play(player2);
+                SoreLoserPlayer soreLoser = new SoreLoserPlayer();
+                soreLoser.Name = "Angry Sally";
+                soreLoser.Play(smackTalker);
 
-            Console.WriteLine("-------------------");
+                Console.WriteLine("-------------------");
 
-            Player large = new LargeDicePlayer();
-            large.Name = "Bigun Rollsalot";
+                List<Player> players = new List<Player>() {
+                    smackTalker, oneHigherPlayer, humanPlayer, bigRoller, creativeSmackTalker
+                };
 
-            player1.Play(large);
-
-            Console.WriteLine("-------------------");
-
-            CreativeSmackTalkingPlayer player4 = new CreativeSmackTalkingPlayer();
-            player4.Name = "Creative Charlie";
-
-            player1.Play(large);
-            player4.Play(player1);
-            Console.WriteLine("-------------------");
-
-            player4.Play(player2);
-
-            List<Player> players = new List<Player>() {
-                player1, player2, player3, large, player4
-            };
-
-            PlayMany(players);
+                //PlayMany(players);
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Angry Sally is quite mad since she lost. She broke the game");
+            }
         }
 
         static void PlayMany(List<Player> players)
