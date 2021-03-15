@@ -4,8 +4,9 @@ using System.Collections.Generic;
 namespace ShootingDice
 {
     // A SmackTalkingPlayer who randomly selects a taunt from a list to say to the other player
-    public class CreativeSmackTalkingPlayer : SmackTalkingPlayer
+    public class CreativeSmackTalkingPlayer : Player
     {
+        public string Taunt { get; set; }
         public List<string> Taunts = new List<string>(){
             "This is gonna hurt!",
             "Good luck, you're going to need it!",
